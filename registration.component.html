@@ -1,0 +1,136 @@
+<div style="background-color: rgb(175, 235, 175);" *ngIf="alert" class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Registered!</strong> Your data has been added successfully.
+  <button (click)="closeAlert()"  type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<form [formGroup]="LoginForms" #formReg="ngForm" (ngSubmit)="onSubmit(formReg.value)">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputtext4">First name</label>
+    <input type="text" ngModel formControlName="firstName" class="form-control" id="inputText4" placeholder="enter first name">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputText4">Second Name</label>
+      <input type="text" class="form-control" ngModel formControlName="secondName"  id="inputText5" placeholder="enter second name">
+    </div>
+    <label style="margin-left: 4px;" class="form-check-label col-md-10">Sex</label>
+      <div class="form-check col-md-4">
+      <input style="margin-left: 7px;" ngModel formControlName="gridRadios"  class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="Male">
+      <label style="margin-left: 24px;" class="form-check-label" for="gridRadios1">
+        Male
+      </label>
+    </div>
+      <div class="form-check col-md-7">
+        <input class="form-check-input" ngModel formControlName="gridRadios"  type="radio" name="gridRadios" id="gridRadios2" value="Female">
+        <label class="form-check-label" for="gridRadios2">
+          Female
+        </label>
+    </div><br><br>
+    <div class="form-group col-md-9">
+      <label for="inputEmail4">Email</label>
+      <input type="email" class="form-control" ngModel formControlName="email"  id="inputEmail4" placeholder="Email">
+    </div><br><br>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Password</label>
+      <input type="password" class="form-control ng-untouched ng-valid ng-pristine" ngModel formControlName="password"  id="inputPassword4" placeholder="Password">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Confirm password</label>
+      <input type="password" class="form-control" ngModel formControlName="confirmPassword"  id="inputPassword5" placeholder="Confirm password">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputAddress">Street Address</label>
+    <input type="text" class="form-control" ngModel formControlName="streetAddress"  id="inputAddress" placeholder="1234 Main St">
+  </div>
+  <div class="form-group">
+    <label for="inputAddress2">Employment status</label>
+    <input type="text" class="form-control" ngModel formControlName="employmentStatus"  id="inputAddress2" placeholder="Doctor, Engineer, Teacher....">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputCity">City</label>
+      <input type="text" ngModel formControlName="city"  class="form-control" id="inputCity">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputState">State</label>
+      <select id="inputState" ngModel formControlName="state"  class="form-control">
+        <option selected>Choose state......</option>
+        <option>Uganda</option>
+        <option>Kenya</option>
+        <option>Tanzania</option>
+        <option>Rwanda</option>
+        <option>Burundi</option>
+        <option>Ethiopia</option>
+        <option>Somalia</option>
+        <option>Sudan</option>
+        <option>South Sudan</option>
+        <option>South Afirca</option>
+        <option>Nigeria</option>
+        <option>Niger</option>
+        <option>Algeria</option>
+        <option>Lisotho</option>
+        <option>Egypt</option>
+        <option>D.R.C</option>
+        <option>Congo Brazaville</option>
+      </select>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputZip">Zip</label>
+      <input type="text" ngModel formControlName="zip"  class="form-control" id="inputZip">
+    </div>
+  </div><br>
+  <label class="form-check-label">Attach a photo</label><br><br>
+  <div class="custom-file">
+    <input type="file" ngModel formControlName="file"  class="custom-file-input" id="customFile">
+    <label class="custom-file-label" for="customFile">Choose file</label>
+  </div><br><br>
+  <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" ngModel formControlName="check"  type="checkbox" id="gridCheck">
+      <label class="form-check-label" for="gridCheck">
+        I agree with the terms and conditions that govern this website.
+      </label>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Register</button><br><br>
+
+  Already have an account? <a routerLink="registration">Sign in</a><br><br>
+</form>
+
+
+<div class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group row">
+            <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+              <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+            </div>
+          </div>
+        </form>
+        <p>Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
